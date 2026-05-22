@@ -2,14 +2,10 @@ include "root" {
   path = find_in_parent_folders("root.hcl")
 }
 
-locals {
-  value = "hello"
+dependency "shared" {
+  config_path = "../shared_dep"
 }
 
 inputs = {
-  x = local.value
-}
-
-terraform {
-  source = "../module"
+  x = dependency.shared.outputs.x
 }

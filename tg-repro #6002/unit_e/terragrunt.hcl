@@ -9,7 +9,3 @@ dependency "shared" {
 inputs = {
   x = dependency.shared.outputs.x
 }
-
-terraform {
-  source = "../consumer"
-}

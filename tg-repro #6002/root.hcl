@@ -1,5 +1,5 @@
 remote_state {
-  backend = "s3"
+  backend = "local"
 
   generate = {
     path      = "backend.tf"
@@ -7,8 +7,6 @@ remote_state {
   }
 
   config = {
-    bucket = "test-bucket"
-    key    = "${path_relative_to_include()}/tofu.tfstate"
-    region = "us-east-1"
+    path = "${get_terragrunt_dir()}/terraform.tfstate"
   }
 }
